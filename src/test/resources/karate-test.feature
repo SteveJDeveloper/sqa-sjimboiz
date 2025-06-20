@@ -46,6 +46,13 @@ Feature: Pruebas de la API de personajes de Marvel
     Then status 200
     * match response == { id: '#number', name: 'Iron Man', alterego: 'Tony Stark', description: 'Genius billionaire', powers: ['Armor', 'Flight'] }
 
+    # Actualizar personaje (exitoso)
+    Given path characterId
+    And request data.characterUpdated
+    When method put
+    Then status 200
+    * match response == { id: '#number', name: 'Iron Man', alterego: 'Tony Stark', description: 'Updated description', powers: ['Armor', 'Flight'] }
+
     # Eliminacion de personaje (exitoso)
     Given path characterId
     When method delete

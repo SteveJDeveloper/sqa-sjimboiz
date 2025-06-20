@@ -10,5 +10,11 @@
     "alterego": "",
     "description": "",
     "powers": []
+  },
+  "characterUpdated": {
+    "name": "Iron Man",
+    "alterego": "Tony Stark",
+    "description": "Updated description",
+    "powers": ["Armor", "Flight"]
   }
 }
