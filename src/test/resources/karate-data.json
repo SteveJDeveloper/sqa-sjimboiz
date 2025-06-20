@@ -5,6 +5,13 @@
     "description": "Genius billionaire",
     "powers": ["Armor", "Flight"]
   },
+  "schemaCharacter": {
+    "id": "#number",
+    "name": "Iron Man",
+    "alterego": "Tony Stark",
+    "description": "Genius billionaire",
+    "powers": ["Armor", "Flight"]
+  },
   "characterIncompleted": {
     "name": "",
     "alterego": "",
@@ -16,5 +23,18 @@
     "alterego": "Tony Stark",
     "description": "Updated description",
     "powers": ["Armor", "Flight"]
+  },
+  "schemaCharacterUpdated": {
+    "id": "#number",
+    "name": "Iron Man",
+    "alterego": "Tony Stark",
+    "description": "Updated description",
+    "powers": ["Armor", "Flight"]
+  },
+  "emptyFieldsResponse": {
+    "name": "Name is required",
+    "alterego": "Alterego is required",
+    "description": "Description is required",
+    "powers": "Powers are required"
   }
 }
