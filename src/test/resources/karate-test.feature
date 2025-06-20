@@ -1,9 +1,13 @@
-Feature: Test de API súper simple
+@REQ_sjimboiz
+Feature: Pruebas de la API de personajes de Marvel
 
   Background:
+    Given url 'https://bp-se-test-cabcd9b246a5.herokuapp.com/sjimboiz/api/characters'
     * configure ssl = true
 
-  Scenario: Verificar que un endpoint público responde 200
-    Given url 'https://httpbin.org/get'
+  @id:1
+  Scenario: T-API-SJIMBOIZ-CA1 Obtener todos los personajes
     When method get
     Then status 200
+    * print response
+    * match response == [] || response.length > 0
