@@ -5,6 +5,7 @@ Feature: Pruebas de la API de personajes de Marvel
     Given url 'https://bp-se-test-cabcd9b246a5.herokuapp.com/sjimboiz/api/characters'
     * configure ssl = true
     * def data = read('classpath:karate-data.json')
+    * print data
 
   @id:1
   Scenario: T-API-SJIMBOIZ-CA1 Obtener todos los personajes
@@ -51,7 +52,15 @@ Feature: Pruebas de la API de personajes de Marvel
     Then status 204
 
   @id:4
-  Scenario Outline: T-API-SJIMBOIZ-CA4 Eliminar personaje con <ids> (no existe)
+  Scenario: T-API-SJIMBOIZ-CA4 Crear personaje (faltan campos requeridos)
+    And request data.characterIncompleted
+    And header Content-Type = 'application/json'
+    When method post
+    Then status 400
+    * match response == { name: 'Name is required', alterego: 'Alterego is required', description: 'Description is required', powers: 'Powers are required' }
+
+  @id:5
+  Scenario Outline: T-API-SJIMBOIZ-CA5 Eliminar personaje con <ids> (no existe)
     Given path <ids>
     When method delete
     Then status 404
