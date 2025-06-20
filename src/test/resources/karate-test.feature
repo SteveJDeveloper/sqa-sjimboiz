@@ -32,6 +32,13 @@ Feature: Pruebas de la API de personajes de Marvel
     * karate.set('characterId', response.id)
     * def characterId = response.id
 
+    # Creacion de personaje (nombre duplicado)
+    And request data.character
+    And header Content-Type = 'application/json'
+    When method post
+    Then status 400
+    * match response.error == 'Character name already exists'
+
     # Obtener personaje por ID especifico (exitoso)
     Given path characterId
     When method get
@@ -51,3 +58,4 @@ Feature: Pruebas de la API de personajes de Marvel
     * match response.error == 'Character not found'
     Examples:
     | read('classpath:ids-not-exist.csv') |
+
