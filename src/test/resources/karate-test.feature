@@ -75,3 +75,12 @@ Feature: Pruebas de la API de personajes de Marvel
     Examples:
     | read('classpath:ids-not-exist.csv') |
 
+  @id:6
+  Scenario Outline: T-API-SJIMBOIZ-CA6 Actualizar personaje con <ids> (no existe)
+    Given path <ids>
+    And request data.characterUpdated
+    When method put
+    Then status 404
+    * match response.error == 'Character not found'
+    Examples:
+      | read('classpath:ids-not-exist.csv') |
